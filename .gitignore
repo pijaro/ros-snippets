@@ -1,0 +1,8 @@
+node_modules
+.vscode
+.vscode/**
+.vscode-test/**
+.gitignore
+vsc-extension-quickstart.md
+.vscodeignore
+*.vsix
