@@ -1,10 +1,10 @@
 # ROS Snippets
 
-A collection of ROS (Robot operating system) snippets for an `xml` launch files.
+A collection of ROS (Robot operating system) snippets.
 
 ## Features
 
-Snippets list:
+Snippets list for launch files:
 
  * `remap` - Declare a name remapping,
  * `param` - Set a parameter on the parameter server,
@@ -16,6 +16,15 @@ Snippets list:
  * `node complex` - Node tag with body and more parameters,
  * `arg` - Declare an argument,
  * `launch` - Root element of every launchfile,
+ * `include wrapped` - Include another launchfile in one line,
  * `include` - Include another launchfile,
  * `tf` - Static transform publisher node,
  * `group` - Group with namespace.
+
+ Snippets list for python files:
+
+  * `subscriber` - ROS subscriber,
+  * `publisher` - ROS publisher,
+  * `rosnode template` - Python template for ROS node implementation,
+  * `periodic timer` - ROS periodic function call,
+  * `param` - Get ROS param.

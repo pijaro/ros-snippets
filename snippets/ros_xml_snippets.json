@@ -14,19 +14,19 @@
     "rosparam file": {
         "scope": "xml",
         "prefix": "rosparam",
-        "body": "<rxosparam file=\"$(find ${1:ros_package})/config/${2:config}.yaml\" command=\"load\" ns=\"${3}\" />",
+        "body": "<rxosparam file=\"$(find ${1:ros_package})/config/${2:config}.yaml\" command=\"load\" ns=\"${3}\" />${0}",
         "description": "ROS Rosparam from file"
     },
     "rosparam": {
         "scope": "xml",
         "prefix": "rosparam",
-        "body": "<rosparam param=\"${1}\">${2}</rosparam>",
+        "body": "<rosparam param=\"${1}\">${0}</rosparam>",
         "description": "ROS Rosparam"
     },
     "node compact": {
         "scope": "xml",
         "prefix": "node",
-        "body": ["<node pkg=\"${1}\" type=\"${2}\" name=\"${2}\">",
+        "body": ["<node pkg=\"${1:ros_package}\" type=\"${2:executable}\" name=\"${2}\">",
             "\t${0}",
             "</node>"],
         "description": "ROS node compact"
@@ -34,19 +34,19 @@
     "node compact wrapped": {
         "scope": "xml",
         "prefix": "node",
-        "body": "<node pkg=\"${1}\" type=\"${2}\" name=\"${2}\" />",
+        "body": "<node pkg=\"${1:ros_package}\" type=\"${2:executable}\" name=\"${2}\" />",
         "description": "ROS node compact in one line"
     },
     "node complex wrapped": {
         "scope": "xml",
         "prefix": "node",
-        "body": "<node pkg=\"${1}\" type=\"${2}\" name=\"${2}\" output=\"${3:screen}\" respawn=\"${4:false}\" respawn_delay=\"${5:0}\" />",
+        "body": "<node pkg=\"${1:ros_package}\" type=\"${2:executable}\" name=\"${2}\" output=\"${3|log,screen|}\" respawn=\"${4|false,true|}\" respawn_delay=\"${5:0}\" />",
         "description": "ROS node with complex settings in single line"
     },
     "node complex": {
         "scope": "xml",
         "prefix": "node",
-        "body": ["<node pkg=\"${1}\" type=\"${2}\" name=\"${2}\" output=\"${3:screen}\" respawn=\"${4:false}\" respawn_delay=\"${5:0}\">",
+        "body": ["<node pkg=\"${1:ros_package}\" type=\"${2:executable}\" name=\"${2}\" output=\"${3|log,screen|}\" respawn=\"${4|false,true|}\" respawn_delay=\"${5:0}\">",
             "\t${0}",
             "</node>"],
         "description": "ROS node with complex settings"
@@ -63,10 +63,16 @@
         "body": ["<?xml version=\"1.0\"?>", "<launch>", "\t${0}", "</launch>"],
         "description": "ROS launch template"
     },
-    "include": {
+    "include wrapped": {
         "scope": "xml",
         "prefix": "include",
         "body": "<include file=\"$(find ${1:ros_package})/launch/${2:file}.launch\" />",
+        "description": "ROS include file"
+    },
+    "include": {
+        "scope": "xml",
+        "prefix": "include",
+        "body": ["<include file=\"$(find ${1:ros_package})/launch/${2:file}.launch\">","\t${0}","</include>"],
         "description": "ROS include file"
     },
     "static tf": {

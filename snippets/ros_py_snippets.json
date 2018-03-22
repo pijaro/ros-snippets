@@ -1,0 +1,43 @@
+{
+    "subscriber": {
+        "scope": "python",
+        "prefix": "subscriber",
+        "body": "rospy.Subscriber(\"${1:topic}\", ${2:Type}, ${3:callback})\n${0}",
+        "description": "ROS subscriber"
+    },
+    "publisher": {
+        "scope": "python",
+        "prefix": "publisher",
+        "body": "${1:message}_pub = rospy.Publisher(\"${2:topic}\", ${3:type}, queue_size=${4:10})\n${0}",
+        "description": "ROS publisher"
+    },
+    "rosnode template": {
+        "scope": "python",
+        "prefix": "rosnode",
+        "body": [
+            "#!/usr/bin/env python",
+            "import rospy \n",
+            "class ${1:Ros}Node:",
+            "\tdef __init__(self):",
+            "\t\trospy.init_node(\"${2:ros_node}\")",
+            "\t\trospy.loginfo(\"Starting ${1:Ros}Node.\")\n",
+            "\t\t${0:pass}\n\n",
+            "if __name__ == \"__main__\":",
+            "\t${2:ros_node} = ${1:Ros}Node()",
+            "\trospy.spin()"
+        ],
+        "description": "ROS node template"
+    },
+    "periodic timer": {
+        "scope": "py",
+        "prefix": "timer",
+        "body": "rospy.Timer(period=rospy.Duration(1.0 / ${1:10}), ${2:callback})\n${0}",
+        "description": "ROS periodic timer"
+    },
+    "param": {
+        "scope": "py",
+        "prefix": "param",
+        "body": "${1:param} = rospy.get_param(\"~${2:param}\", default=\"${3:0}\")\n${0}",
+        "description": "ROS get param"
+    }
+}

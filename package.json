@@ -1,8 +1,8 @@
 {
     "name": "ros-snippets",
     "displayName": "ROS snippets",
-    "description": "ROS (Robot operating system) snippets for launchfiles.",
-    "version": "0.1.0",
+    "description": "ROS (Robot operating system) snippets.",
+    "version": "0.2.0",
     "publisher": "pijar",
     "repository": {
         "type": "git",
@@ -18,7 +18,11 @@
         "snippets": [
             {
                 "language": "xml",
-                "path": "./snippets/snippets.json"
+                "path": "./snippets/ros_xml_snippets.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/ros_py_snippets.json"
             }
         ]
     }
