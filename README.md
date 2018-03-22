@@ -21,6 +21,7 @@ Snippets list for launch files:
  * `tf` - Static transform publisher node,
  * `group` - Group with namespace.
 
+
  Snippets list for python files:
 
   * `subscriber` - ROS subscriber,
