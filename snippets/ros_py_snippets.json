@@ -31,7 +31,7 @@
     "periodic timer": {
         "scope": "py",
         "prefix": "timer",
-        "body": "rospy.Timer(period=rospy.Duration(1.0 / ${1:10}), ${2:callback})\n${0}",
+        "body": "rospy.Timer(rospy.Duration(1.0 / ${1:10}), ${2:callback})\n${0}",
         "description": "ROS periodic timer"
     },
     "param": {
