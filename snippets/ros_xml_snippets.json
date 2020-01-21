@@ -14,7 +14,7 @@
     "rosparam file": {
         "scope": "xml",
         "prefix": "rosparam",
-        "body": "<rxosparam file=\"$(find ${1:ros_package})/config/${2:config}.yaml\" command=\"load\" ns=\"${3}\" />${0}",
+        "body": "<rosparam file=\"$(find ${1:ros_package})/config/${2:config}.yaml\" command=\"load\" ns=\"${3}\" />${0}",
         "description": "ROS Rosparam from file"
     },
     "rosparam": {
