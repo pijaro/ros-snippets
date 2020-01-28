@@ -32,4 +32,4 @@ Snippets list for launch files:
   * `service server` - Service server handler
   * `service client` - Service client handler
   * `service wait` - Wait for service
-  * `service wait client` - Service server handler with wait for service
+  * `service wait client` - Service client handler with 'wait for service' and 'try/catch' wrapper

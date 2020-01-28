@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.3.1]
+- Readme fix
+
 ## [0.3.0]
 - Added python service related snippets
 - Updated readme
