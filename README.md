@@ -27,5 +27,9 @@ Snippets list for launch files:
   * `subscriber` - ROS subscriber,
   * `publisher` - ROS publisher,
   * `rosnode template` - Python template for ROS node implementation,
-  * `periodic timer` - ROS periodic function call,
+  * `timer` - ROS periodic function call,
   * `param` - Get ROS param.
+  * `service server` - Service server handler
+  * `service client` - Service client handler
+  * `service wait` - Wait for service
+  * `service wait client` - Service server handler with wait for service

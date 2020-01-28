@@ -2,7 +2,7 @@
     "name": "ros-snippets",
     "displayName": "ROS snippets",
     "description": "ROS (Robot operating system) snippets.",
-    "version": "0.2.3",
+    "version": "0.3.0",
     "publisher": "pijar",
     "repository": {
         "type": "git",

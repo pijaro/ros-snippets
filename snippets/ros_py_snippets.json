@@ -39,5 +39,35 @@
         "prefix": "param",
         "body": "${1:param} = rospy.get_param(\"~${2:param}\", default=\"${3:0}\")\n${0}",
         "description": "ROS get param"
+    },
+    "service server": {
+        "scope": "py",
+        "prefix": "service",
+        "body": "${1:srv_server_handler} = rospy.Service(${2:service_name}, ${3:service_type}, ${4:service_callback})\n${0}",
+        "description": "ROS service server"
+    },
+    "service client": {
+        "scope": "py",
+        "prefix": "service",
+        "body": "${1:srv_client_handler} = rospy.ServiceProxy(${2:service_name}, ${3:service_type})\n${0}",
+        "description": "ROS service client"
+    },
+    "service wait": {
+        "scope": "py",
+        "prefix": "service",
+        "body": "rospy.wait_for_service(${1:service_name})\n${0}",
+        "description": "ROS service wait"
+    },
+    "service wait client": {
+        "scope": "py",
+        "prefix": "service",
+        "body": [
+            "rospy.wait_for_service(${1:service_name})",
+            "try:",
+            "\t${2:srv_client_handler} = rospy.ServiceProxy(${1:service_name}, ${3:service_type})\n\t${0}",
+            "except rospy.ServiceException as e:",
+            "\tprint(e)"
+        ],
+        "description": "ROS service client wrapped with try/except and prior wait for service."
     }
 }
