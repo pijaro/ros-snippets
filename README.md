@@ -33,3 +33,7 @@ Snippets list for launch files:
   * `service client` - Service client handler
   * `service wait` - Wait for service
   * `service wait client` - Service client handler with 'wait for service' and 'try/catch' wrapper
+  
+Snippets list for cpp files:
+
+ * TODO

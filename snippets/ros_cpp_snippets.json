@@ -1,0 +1,68 @@
+{
+	"ros::init": {
+		"scope": "cpp",
+		"prefix": "rosinit",
+		"body": "ros::init(argc, argv, \"${1:/*node_name*/}\");\nros::NodeHandle n;\n$0",
+		"description": "ros::init()"
+	},
+	"ros::Publisher": {
+		"scope": "cpp",
+		"prefix": "rospub",
+		"body": "ros::Publisher ${1:/*pub_name*/}_pub = ${2:n}.advertise<${3:/*msg_type*/}>(\"${4:/*topic_name*/}\", ${5:1000});\n$0",
+		"description": "ros::Publisher"
+	},
+	"ros::Subscriber": {
+		"scope": "cpp",
+		"prefix": "rossub",
+		"body": "ros::Subscriber ${1:/*sub_name*/}_sub = ${2:n}.subscribe(\"${3:/*topic_name*/}\", ${4:1000}, ${5:/*subCallback*/}_callback);\n$0",
+		"description": "ros::Subscriber"
+	},
+	"ros while": {
+		"scope": "cpp",
+		"prefix": "roswhile",
+		"body": "ros::Rate loop_rate(${1:10});\nwhile (ros::ok())\n{\n\t${0:/* code for loop body */}\n\n\tros::spinOnce();\n\tloop_rate.sleep();\n}\n",
+		"description": "ros::Rate … while"
+	},
+	"ros error": {
+		"scope": "cpp",
+		"prefix": "roserr",
+		"body": "ROS_ERROR_STREAM(${1});\n$0",
+		"description": "ros error"
+	},
+	"ros info": {
+		"scope": "cpp",
+		"prefix": "rosinfo",
+		"body": "ROS_INFO_STREAM(${1});\n$0",
+		"description": "ros info"
+	},
+	"ros debug": {
+		"scope": "cpp",
+		"prefix": "rosdbg",
+		"body": "ROS_DEBUG_STREAM(${1});\n$0",
+
+		"description": "ros debug"
+	},
+	"ros info var": {
+		"scope": "cpp",
+		"prefix": "rosinfovar",
+		"body": "ROS_INFO_STREAM(\"${2:$1} = \" << $1);\n$0",
+	},
+	
+	"ros debug var": {
+		"scope": "cpp",
+		"prefix": "rosdbgvar",
+		"body": "ROS_DEBUG_STREAM(\"${1:} = \" << ${2:$1});\n$0",
+	},
+	
+	"ros assert": {
+		"scope": "cpp",
+		"prefix": "rosass",
+		"body": "ROS_ASSERT(${1:});\n$0",
+	},
+	
+	"ros get param": {
+		"scope": "cpp",
+		"prefix": "rosparam_get",
+		"body": "if (!n.getParam(\"$1\", ${1:name}))\n\t{ ROS_ERROR(\"No $1 param\"); }\n$0",
+	}
+}
